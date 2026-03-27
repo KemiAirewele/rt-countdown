@@ -1,0 +1,8 @@
+.next/
+node_modules/
+.env.local
+.env.local.example
+CLAUDE.md
+next-env.d.ts
+.claude/
+.DS_Store
