@@ -205,11 +205,20 @@ export default function Game() {
     const val = parseInt(manualInput);
     if (isNaN(val) || val < 0 || val > 100) return;
 
+    const movie = currentBucket[selected!];
+
     // Patch the manual score into the bucket
     const updatedBuckets = [...buckets];
     updatedBuckets[round] = [...currentBucket];
-    updatedBuckets[round][selected!] = { ...currentBucket[selected!], rt: val };
+    updatedBuckets[round][selected!] = { ...movie, rt: val };
     setBuckets(updatedBuckets);
+
+    // Report to KV for crowdsourcing (fire-and-forget)
+    fetch("/api/score/report", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: movie.title, year: movie.year, score: val }),
+    }).catch(() => {});
 
     applyScore(val, updatedBuckets);
   }
