@@ -538,7 +538,7 @@ export default function Game() {
         {/* Status hint */}
         {phase === "picking" && selected === null && (
           <p className="text-neutral-600 text-xs font-mono mb-8">
-            scores are hidden — pick based on what you know
+            pick the movie you think gets you closest to zero
           </p>
         )}
 
