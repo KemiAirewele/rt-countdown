@@ -11,7 +11,18 @@ const ibmMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "RT Countdown",
-  description: "Pick movies. Subtract their RT scores. Hit exactly zero.",
+  description: "How well do you really know movies?",
+  openGraph: {
+    title: "RT Countdown",
+    description: "How well do you really know movies?",
+    images: [{ url: "/og.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RT Countdown",
+    description: "How well do you really know movies?",
+    images: ["/og.png"],
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
